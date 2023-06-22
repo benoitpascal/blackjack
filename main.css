@@ -37,7 +37,7 @@ header {
 }
 
 main {
-    padding-top: 5vh;
+    padding-top: 10vh;
     height: 100vh;
     width: 100vw;
 }
@@ -122,6 +122,12 @@ footer {
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.flexRow {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
 }
 
 .flexColumnWithSpace {

@@ -33,12 +33,15 @@ footer.style.color = "var(--button-color)"
 setTitle("BlackJack", header)
 
 // Création de la zone "informations"
-const elsInformations = createBalise("div", header, "flexCenter")
+const elsInformations = createBalise("div", header, "flexRow")
 elsInformations.id = "infos"
 
 // Affichage des crédits restants
 const elCredit = createBalise("div", elsInformations, "credit-info")
 elCredit.textContent = userCredits.toLocaleString()
+
+// Affichage du bouton paramètre
+const elParams = createBalise("div", elsInformations, "params")
 
 // --- Création d'un bouton pour démarrer le jeu
 const playBtn = createButton('Jouer', main)
@@ -55,6 +58,7 @@ function startGame() {
     footer.classList.add("in-game")
 
     dispCredit()
+    start()
 }
 
 function dispCredit() {
@@ -63,11 +67,6 @@ function dispCredit() {
 
 function start()
 {
-
-
-// --- Création de la structure à l'intérieur du footer
-    const playerCredits = createBalise("span", footer)
-    playerCredits.textContent = `Vous avez : ${userCredits} crédits.`
 
 
 // --- Création de la structure à l'intérieur du body

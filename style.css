@@ -5,15 +5,22 @@ h1 {
 }
 
 #infos {
-    width: 80%;
-    background: black;
-    margin: 10px;
-    border-radius: 50px;
+    width: 100%;
 }
 
 .credit-info {
     color: #fff;
     font-size: 28px;
+    width: 80%;
+    background: black;
+    margin: 10px;
+    border-radius: 50px;
+    text-align: center;
+}
+
+.params {
+    width: 20%;
+    height: 100%;
 }
 
 
