@@ -1,0 +1,93 @@
+:root {
+    --main-blue: hsl(240, 100%, 40%);
+    --dark-blue: hsl(240, 100%, 30%);
+    --verydark-blue: hsl(240, 100%, 20%);
+
+    --main-red: hsl(0, 100%, 40%);
+    --dark-red: hsl(0, 100%, 30%);
+    --verydark-red: hsl(0, 100%, 20%);
+
+    --main-purple: hsl(300, 100%, 25%);
+    --dark-purple: hsl(300, 100%, 15%);
+    --verydark-purple: hsl(300, 100%, 5%);
+
+    --main-teal: hsl(180, 100%, 25%);
+    --dark-teal: hsl(180, 100%, 15%);
+    --verydark-teal: hsl(180, 100%, 5%);
+
+    --main-orange: hsl(39, 100%, 50%);
+    --dark-orange: hsl(39, 100%, 40%);
+    --verydark-orange: hsl(39, 100%, 30%);
+}
+
+/* Style pour les cartes */
+
+.card.turn.redBase {
+    transition: transform 1s cubic-bezier(0, 0.79, 1, 0.21), background 0s 0.5s, color 0s 0.5s, box-shadow 0s 0.5s;
+    transform: rotate3d(0, 1, 0, 180deg);
+    background: var(--main-red);
+    color: transparent;
+    box-shadow: inset 0 0 0 10px var(--dark-red), inset 0 0 0 20px var(--verydark-red);
+}
+
+.card.turn.blueBase {
+    transition: transform 1s cubic-bezier(0, 0.79, 1, 0.21), background 0s 0.5s, color 0s 0.5s, box-shadow 0s 0.5s;
+    transform: rotate3d(0, 1, 0, 180deg);
+    background: var(--main-blue);
+    color: transparent;
+    box-shadow: inset 0 0 0 10px var(--dark-blue), inset 0 0 0 20px var(--verydark-blue);
+}
+
+.card.turn.purpleBase {
+    transition: transform 1s cubic-bezier(0, 0.79, 1, 0.21), background 0s 0.5s, color 0s 0.5s, box-shadow 0s 0.5s;
+    transform: rotate3d(0, 1, 0, 180deg);
+    background: var(--main-purple);
+    color: transparent;
+    box-shadow: inset 0 0 0 10px var(--dark-purple), inset 0 0 0 20px var(--verydark-purple);
+}
+
+.card.turn.tealBase {
+    transition: transform 1s cubic-bezier(0, 0.79, 1, 0.21), background 0s 0.5s, color 0s 0.5s, box-shadow 0s 0.5s;
+    transform: rotate3d(0, 1, 0, 180deg);
+    background: var(--main-teal);
+    color: transparent;
+    box-shadow: inset 0 0 0 10px var(--dark-teal), inset 0 0 0 20px var(--verydark-teal);
+}
+
+.card.turn.orangeBase {
+    transition: transform 1s cubic-bezier(0, 0.79, 1, 0.21), background 0s 0.5s, color 0s 0.5s, box-shadow 0s 0.5s;
+    transform: rotate3d(0, 1, 0, 180deg);
+    background: var(--main-orange);
+    color: transparent;
+    box-shadow: inset 0 0 0 10px var(--dark-orange), inset 0 0 0 20px var(--verydark-orange);
+}
+
+input.blueBase {
+    background: var(--main-blue);
+    box-shadow: inset 0 0 0 10px var(--dark-blue), inset 0 0 0 20px var(--verydark-blue);
+}
+
+input.redBase {
+    background: var(--main-red);
+    box-shadow: inset 0 0 0 10px var(--dark-red), inset 0 0 0 20px var(--verydark-red);
+}
+
+input.purpleBase {
+    background: var(--main-purple);
+    box-shadow: inset 0 0 0 10px var(--dark-purple), inset 0 0 0 20px var(--verydark-purple);
+}
+
+input.tealBase {
+    background: var(--main-teal);
+    box-shadow: inset 0 0 0 10px var(--dark-teal), inset 0 0 0 20px var(--verydark-teal);
+}
+
+input.orangeBase {
+    background: var(--main-orange);
+    box-shadow: inset 0 0 0 10px var(--dark-orange), inset 0 0 0 20px var(--verydark-orange);
+}
+
+.card.activatedColorParam {
+    transition: transform 1s;
+    transform: translateY(-20px);
+}
