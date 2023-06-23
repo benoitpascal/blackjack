@@ -39,7 +39,7 @@ function setTitle(title, parent) {
 }
 
 function setParam(colorBase) {
-    for (card of elsCards) {
+    for(let card of elsCards) {
         console.log("removeBase")
         card.classList.remove("blueBase")
         card.classList.remove("redBase")
@@ -51,7 +51,7 @@ function setParam(colorBase) {
 }
 
 function cancelParam(colorBase) {
-    for (card of elsCards) {
+    for(let card of elsCards) {
         console.log("removeBase")
         card.classList.remove("blueBase")
         card.classList.remove("redBase")
