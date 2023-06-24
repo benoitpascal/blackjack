@@ -39,6 +39,28 @@ h1 {
 
 
 /* Elements du jeu */
+.coins {
+    bottom: calc(-3vw);
+    width: 100%;
+    z-index: 500;
+    position: fixed;
+    justify-content: flex-end;
+    transition: translate 1s;
+}
+
+.coins.out {
+    translate: 0 20vw;
+}
+
+.coin {
+    flex: 0.2 0;
+    height: calc(18vw);
+    background: black;
+    border-radius: 100%;
+    color: white;
+    margin: 1vw
+}
+
 .card {
     aspect-ratio: 0.7;
     height: 26vh;
@@ -126,5 +148,32 @@ h1 {
 
     .params {
         width: 90%;
+    }
+}
+
+@media (min-width: 426px) and (max-width: 1025px) {
+    .coins {
+        max-width: calc(100vw - 300px);
+        margin-left: 300px;
+    }
+    .coin {
+        width: calc(18vw - 60px );
+        height: calc(18vw - 60px );
+        max-width: 200px;
+        max-height: 200px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .coins {
+        max-width: calc(100vw - 600px);
+        margin-left: 300px;
+    }
+
+    .coin {
+        width: calc(18vw - 120px);
+        height: calc(18vw - 120px);
+        max-width: 200px;
+        max-height: 200px;
     }
 }

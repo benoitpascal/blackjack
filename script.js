@@ -155,6 +155,20 @@ const elModalPanel = document.createElement("div"),
 
     })
 
+    // Préparation de la div incluant les jetons pour miser
+    const elCoins = document.createElement('div');
+    elCoins.className = 'flexRow coins out';
+
+    const elValues = [5,10,25,50,100]
+
+    for(let i = 0; i < 5; i++) {
+        const elCoin = document.createElement('div')
+        elCoin.className = 'coin flexCenter';
+        elCoin.textContent = elValues[i];
+        elCoins.appendChild(elCoin);
+}
+
+    body.appendChild(elCoins);
 // Lancement du jeu
 function startGame() {
     console.log("C'est parti !");
@@ -164,6 +178,8 @@ function startGame() {
 
     header.classList.add("in-game")
     footer.classList.add("in-game")
+
+    elCoins.classList.remove("out")
 
     dispCredit()
     start()
