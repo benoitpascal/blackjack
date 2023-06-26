@@ -159,12 +159,14 @@ const elModalPanel = document.createElement("div"),
     const elCoins = document.createElement('div');
     elCoins.className = 'flexRow coins out';
 
-    const elValues = [5,10,25,50,100]
+    const elValues = [[5, 'white'],[10, 'blue'],[25, 'red'],[50, 'green'],[100, 'black']]
 
     for(let i = 0; i < 5; i++) {
         const elCoin = document.createElement('div')
         elCoin.className = 'coin flexCenter';
-        elCoin.textContent = elValues[i];
+        elCoin.style.backgroundColor = elValues[i][1]
+        if(i === 0) {elCoin.style.color = 'black'}
+        elCoin.textContent = elValues[i][0];
         elCoins.appendChild(elCoin);
 }
 

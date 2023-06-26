@@ -58,7 +58,10 @@ h1 {
     background: black;
     border-radius: 100%;
     color: white;
-    margin: 1vw
+    margin: 1vw;
+    font-size: 30px;
+    font-weight: bold;
+    border: 1px solid rgba(0,0,0,0.5);
 }
 
 .card {
