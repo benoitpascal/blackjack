@@ -52,6 +52,7 @@ h1 {
     margin: 1vw;
     border-radius: 100%;
     color: #ffffff;
+    flex: 2 0 0;
 }
 
 .coins.out {
@@ -62,10 +63,7 @@ h1 {
     transition: rotation 1s;
     flex: 0.2 0;
     height: calc(18vw);
-    background: black;
     border-radius: 100%;
-    color: white;
-
     font-size: 30px;
     font-weight: bold;
     clip-path: polygon( 107% 40%, 91% 43%, 91% 57%, 107% 60%, 87% 95%, 77% 82%, 64% 89%, 70% 105%, 30% 105%, 36% 89%, 23% 82%, 13% 95%, -7% 60%, 9% 57%, 9% 43%, -7% 40%, 13% 5%, 23% 18%, 36% 11%, 30% -5%, 70% -5%, 64% 11%, 77% 18%, 87% 5%)
@@ -170,6 +168,14 @@ h1 {
         max-width: calc(100vw - 300px);
         margin-left: 300px;
     }
+
+    .coins > div {
+        width: calc(18vw - 60px );
+        height: calc(18vw - 60px );
+        max-width: 200px;
+        max-height: 200px;
+    }
+
     .coin {
         width: calc(18vw - 60px );
         height: calc(18vw - 60px );
@@ -182,6 +188,13 @@ h1 {
     .coins {
         max-width: calc(100vw - 600px);
         margin-left: 300px;
+    }
+
+    .coins > div {
+        width: calc(18vw - 120px);
+        height: calc(18vw - 120px);
+        max-width: 200px;
+        max-height: 200px;
     }
 
     .coin {
