@@ -43,7 +43,14 @@ paramBtn.addEventListener("click", handlerDispParams);
 
 // --- Création d'un bouton pour démarrer le jeu
 const playBtn = createButton('Jouer', main);
-playBtn.addEventListener("click", startGame);
+playBtn.addEventListener("click", showTokens);
+
+// --- Création d'un bouton pour démarrer le jeu
+const dealBtn = document.createElement('button');
+dealBtn.type = "button"
+dealBtn.value = "Miser"
+dealBtn.textContent = "Miser"
+dealBtn.addEventListener("click", startGame);
 
 // Initialisation de la modale incluant les paramètres
 const elModalPanel = document.createElement("div"),
@@ -159,20 +166,27 @@ const elModalPanel = document.createElement("div"),
     const elCoins = document.createElement('div');
     elCoins.className = 'flexRow coins out';
 
-    const elValues = [[5, 'white'],[10, 'blue'],[25, 'red'],[50, 'green'],[100, 'black']]
+    const elValues = [[5, '#FFFFFF'],[10, '#0000FF'],[25, '#FF0000'],[50, '#008000'],[100, '#000000']]
 
     for(let i = 0; i < 5; i++) {
+        // création de la couleur de fond
+        const elCoinBG = document.createElement('div')
+        elCoins.appendChild(elCoinBG);
+        if(i === 0) {elCoinBG.style.backgroundColor = 'black'}
+        else { elCoinBG.style.backgroundColor = 'white' }
+
+        // création de la partie principale du jeton
         const elCoin = document.createElement('div')
         elCoin.className = 'coin flexCenter';
-        elCoin.style.backgroundColor = elValues[i][1]
+        elCoin.style.background = `radial-gradient(${elValues[i][1]}FF 35%, ${elValues[i][1]}AA 58%, ${elValues[i][1]} 62%)`
         if(i === 0) {elCoin.style.color = 'black'}
         elCoin.textContent = elValues[i][0];
-        elCoins.appendChild(elCoin);
+        elCoinBG.appendChild(elCoin);
 }
 
     body.appendChild(elCoins);
 // Lancement du jeu
-function startGame() {
+function showTokens() {
     console.log("C'est parti !");
 
     // suppression du bouton "Jouer"
@@ -181,15 +195,13 @@ function startGame() {
     header.classList.add("in-game")
     footer.classList.add("in-game")
 
-    elCoins.classList.remove("out")
-
     dispCredit()
-    start()
 }
 
 // Affichage des crédits restants
 function dispCredit() {
-
+    elCoins.classList.remove("out")
+    main.appendChild(dealBtn)
 }
 
 // Gestion du bouton d'affichage de la modale de paramètres
@@ -197,9 +209,9 @@ function handlerDispParams() {
     elModalPanel.classList.remove("hidden");
 }
 
-function start()
+function startGame()
 {
-
+    elCoins.classList.add("out")
 
 // --- Création de la structure à l'intérieur du body
 // Création de la zone de jeu

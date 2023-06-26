@@ -48,20 +48,31 @@ h1 {
     transition: translate 1s;
 }
 
+.coins > div {
+    margin: 1vw;
+    border-radius: 100%;
+    color: #ffffff;
+}
+
 .coins.out {
     translate: 0 20vw;
 }
 
 .coin {
+    transition: rotation 1s;
     flex: 0.2 0;
     height: calc(18vw);
     background: black;
     border-radius: 100%;
     color: white;
-    margin: 1vw;
+
     font-size: 30px;
     font-weight: bold;
     clip-path: polygon( 107% 40%, 91% 43%, 91% 57%, 107% 60%, 87% 95%, 77% 82%, 64% 89%, 70% 105%, 30% 105%, 36% 89%, 23% 82%, 13% 95%, -7% 60%, 9% 57%, 9% 43%, -7% 40%, 13% 5%, 23% 18%, 36% 11%, 30% -5%, 70% -5%, 64% 11%, 77% 18%, 87% 5%)
+}
+
+.coins.out .coin {
+    rotate: -45deg;
 }
 
 .card {
