@@ -1,6 +1,6 @@
 console.log('BlackJack')
 
-// Initialisation des paramètres nécessaires pour jouer
+// Initialisation des constantes nécessaires pour jouer
 // - Crédit restant
 let userCredits = 1000
 console.log("Nous vous offrons 1000 crédits")
@@ -20,7 +20,6 @@ const elsCards = []
 // Initialisation de la structure principale du DOM
 const body = document.body;
 body.innerHTML = ''
-
 
 // Création de la structure principale de la page
 createDOM()
