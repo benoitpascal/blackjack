@@ -24,65 +24,18 @@ createDOM()
 // Initialisation de la modale incluant les paramètres
 createModale()
 
-    // Préparation de la div incluant les jetons pour miser
-    const elCoins = document.createElement('div');
-    elCoins.className = 'flexRow coins out';
+// Initialisation des jetons
+initTokens()
 
-    const elValues = [[5, '#FFFFFF'],[10, '#0000FF'],[25, '#FF0000'],[50, '#008000'],[100, '#000000']]
-
-    for(let i = 0; i < 5; i++) {
-        // création du jeton
-
-        // création de la couleur de fond
-        const elCoinBG = document.createElement('div')
-        elCoins.appendChild(elCoinBG);
-        if(i === 0) {elCoinBG.style.backgroundColor = 'black'}
-        else { elCoinBG.style.backgroundColor = 'white' }
-
-        // création de la partie principale du jeton
-        const elCoin = document.createElement('div')
-        elCoin.className = 'coin flexCenter';
-        elCoin.style.background = `radial-gradient(${elValues[i][1]}FF 35%, ${elValues[i][1]}AA 58%, ${elValues[i][1]} 62%)`
-        if(i === 0) {elCoin.style.color = 'black'}
-        elCoin.textContent = elValues[i][0];
-        elCoinBG.appendChild(elCoin);
-
-        // association de l'événement au click
-        elCoin.addEventListener('click', function (evt) {
-
-            // si l'utilisateur a assez de crédit, on incrémente le montant à miser
-            if((amountBet + parseInt(evt.target.textContent)) <= userCredits) {
-                amountBet += parseInt(evt.target.textContent)
-
-                // on met à jour l'affichage sur le bouton
-                elDealBtn.textContent = `Miser ${amountBet} crédits`
-            }
-
-
-        })
-}
-
-    body.appendChild(elCoins);
 // Lancement du jeu
-function showTokens() {
-    console.log("C'est parti !");
 
-    // suppression du bouton "Jouer"
-    playBtn.classList.add("hidden")
-    header.classList.add("in-game")
-    footer.classList.add("in-game")
-
-    dispCredit()
-}
 
 // Affichage des crédits restants
 function dispCredit() {
-    elCoins.classList.remove("out")
-    main.appendChild(elDealBtn)
+
 }
 
-function startGame()
-{
+function startGame(){
     elCoins.classList.add("out")
     elDealBtn.remove()
 
