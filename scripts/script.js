@@ -13,10 +13,7 @@ const elsCards = []
 
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////
-//
-//
-//
+
 // Initialisation de la structure principale du DOM
 const body = document.body;
 body.innerHTML = ''
@@ -24,11 +21,8 @@ body.innerHTML = ''
 // Création de la structure principale de la page
 createDOM()
 
-
 // Initialisation de la modale incluant les paramètres
 createModale()
-
-
 
     // Préparation de la div incluant les jetons pour miser
     const elCoins = document.createElement('div');
@@ -75,7 +69,6 @@ function showTokens() {
 
     // suppression du bouton "Jouer"
     playBtn.classList.add("hidden")
-
     header.classList.add("in-game")
     footer.classList.add("in-game")
 
@@ -86,11 +79,6 @@ function showTokens() {
 function dispCredit() {
     elCoins.classList.remove("out")
     main.appendChild(elDealBtn)
-}
-
-// Gestion du bouton d'affichage de la modale de paramètres
-function handlerDispParams() {
-    elModalPanel.classList.remove("hidden");
 }
 
 function startGame()
