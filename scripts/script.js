@@ -1,6 +1,6 @@
 console.log('BlackJack')
 
-// Initialisation des constantes nécessaires pour jouer
+// Initialisation des données nécessaires pour jouer
 // - Crédit restant
 let userCredits = 1000
 console.log("Nous vous offrons 1000 crédits")
