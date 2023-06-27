@@ -1,86 +1,16 @@
+// Initialisation du paquet de cartes
+let countCards = 0;
+let mainDeck = [];
+
 // Démarre le jeu
 function startGame(){
     elCoins.classList.add("out")
     elDealBtn.remove()
 
 // --- Création de la structure à l'intérieur du body
-// Création de la zone de jeu
-
-
-// Espace pour les cartes du croupier
-    const eldealerZone = createBalise("div", main, "col-1")
-    eldealerZone.classList.add("flexCenter")
-    eldealerZone.classList.add("h35")
-    const fakeCard = createBalise("div", eldealerZone, "card")
-    fakeCard.classList.add("redBase")
-    fakeCard.classList.add("turn")
-    elsCards.push(fakeCard)
-
-// Espace pour les cartes du joueur
-    const gameZone = createBalise("div", main, "col-1")
-    gameZone.classList.add("flexCenter")
-    gameZone.classList.add("h35")
-
-
-    const firstCard = createBalise("div", gameZone, "card")
-    firstCard.id = "firstCard"
-    elsCards.push(firstCard)
-    firstCard.classList.add("redBase")
-    const secondCard = createBalise("div", gameZone, "card")
-    secondCard.id = "secondCard"
-    elsCards.push(secondCard)
-    secondCard.classList.add("redBase")
-
-    const card1HG = createBalise("p", firstCard, "hg_display")
-    card1HG.textContent = "B ♥"
-    const card1C = createBalise("p", firstCard, "c_display")
-    card1C.textContent = "B ♥"
-    const card1BG = createBalise("p", firstCard, "bd_display")
-    card1BG.textContent = "B ♥"
-
-    const card2HG = createBalise("p", secondCard, "hg_display")
-    card2HG.textContent = "F ♥"
-    const card2C = createBalise("p", secondCard, "c_display")
-    card2C.textContent = "F ♥"
-    const card2BG = createBalise("p", secondCard, "bd_display")
-    card2BG.textContent = "F ♥"
-
-// Création d'une ligne pour l'affichage des points
-    const pointZone = createBalise("div", main, "flexCenter")
-    pointZone.classList.add("col-1")
-    pointZone.classList.add("h5")
-    createBalise("div", pointZone, "col-4")
-    const dispPoints = createBalise("div", pointZone, "col-2")
-    dispPoints.classList.add("flexCenter")
-    createBalise("div", pointZone, "col-4")
-    dispPoints.textContent = "Points"
-
-
-// Création d'une ligne pour l'affichage des bouttons
-    const choiceZone = createBalise("div", main, "col-1")
-    choiceZone.classList.add("flexCenter")
-    choiceZone.classList.add("h25")
-    createBalise("div", choiceZone, "col-4")
-    const buttonZone = createBalise("div", choiceZone, "col-2")
-    buttonZone.classList.add("flexCenter")
-    createBalise("div", choiceZone, "col-4")
-
-
-// Création des boutons
-    let buttons = []
-    buttons = createMultipleBalise("div", 4, buttonZone, "button")
-
-    const btnValues = ["Miser 100 crédits", "Demander une carte", "Doubler la mise", "Rester"]
-    for (let i = 0; i < buttons.length; i++) {
-        const myButton = createButton(btnValues[i], buttons[i], "col-1");
-        buttons[i].classList.add("col-2")
-        myButton.textContent = btnValues[i];
-    }
-
-
-
-
-
+    // Création de la zone de jeu
+    initGameZone()
+    createGameZone()
 
 
 
@@ -108,9 +38,7 @@ function startGame(){
 //                                 |||||||   |||||||||   ||||||| |||   |||                                  //
 //                                                                                                          //
 
-// Initialisation du paquet de cartes
-    let countCards = 0;
-    let mainDeck = [];
+
 
     for (let p = 0; p < 6; p++) {
         for (let i = 0; i < 4; i++) {
