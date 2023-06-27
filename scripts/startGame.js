@@ -50,16 +50,7 @@ function startGame(){
     dispPoints.textContent = 'Vous avez actuellement ' + userScore + ' points en main';
     console.log('Vous avez actuellement ' + userScore + ' points en main')
 
-    buttons[0].addEventListener("click", () => {
-        userScore = drawMore(userScore, gameZone)
 
-        dispPoints.textContent = 'Vous avez actuellement ' + userScore + ' points en main';
-        console.log('Vous avez actuellement ' + userScore + ' points en main')
-    })
-
-    buttons[1].addEventListener("click",double)
-
-    buttons[2].addEventListener("click", stand)
 
 }
 
@@ -101,16 +92,31 @@ function double() {
 
 function stand() {
     fakeCard.style.display = "none"
+
+    // Le croupier tire des cartes tant qu'il a un score inférieur à 17
     while (dealerScore < 17) {
         dealerScore = drawMore(dealerScore, elDealerZone)
     }
+
     choiceZone.classList.add('hidden')
-    if ((userScore > dealerScore || dealerScore > 21) && userScore < 21) {
+    if ((userScore > dealerScore || dealerScore > 21) && userScore <= 21) {
         console.log("Félicitations !")
-        userCredits += 200
+        resultZone.innerHTML = `Félicitations !! Vous avez gagné !!<br>
+ Vous avez ${userScore} points et le croupier à ${dealerScore} points !`;
+        userCredits += 2 * amountBet;
     } else {
         console.log("Dommage, vous avez perdu votre mise")
+        resultZone.innerHTML = `Dommage, vous avez perdu votre mise.<br>
+         Vous avez ${userScore} points et le croupier à ${dealerScore} points.`;
     }
+
+    elCredit.textContent = userCredits;
+
+        resultZone.classList.remove('hidden')
+    replayBtn = createButton('Rejouer', resultZone);
+    replayBtn.addEventListener("click", getTokens);
+
+
 }
 
 // function redBase() {

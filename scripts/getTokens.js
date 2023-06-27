@@ -47,7 +47,6 @@ function initTokens() {
     }
 
     body.appendChild(elCoins);
-    main.appendChild(elDealBtn);
     elDealBtn.classList.add('hidden');
 
     console.log("C'est parti !");
@@ -58,6 +57,15 @@ function initTokens() {
 function getTokens() {
     // Animation de la page
 
+    // Suppression de la zone de jeu si elle a déjà été activée
+    elDealerZone.classList.add('hidden')
+    pointZone.classList.add('hidden')
+    choiceZone.classList.add('hidden')
+    resultZone.classList.add('hidden')
+    for (let card of elsCards) {
+        card.remove()
+    }
+
     // Masquage du bouton "Start"
     playBtn.classList.add("hidden")
 
@@ -67,6 +75,11 @@ function getTokens() {
 
     // Affichage des jetons dans la page
     elCoins.classList.remove("out")
+
+    // Réinitialisation de la mise
+    amountBet = 0
+    elDealBtn.textContent = "Miser"
+    main.appendChild(elDealBtn)
     elDealBtn.classList.remove('hidden');
 }
 

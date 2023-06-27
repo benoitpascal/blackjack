@@ -7,7 +7,8 @@ let elDealerZone = null,
     choiceZone = null,
     buttonZone = null,
     buttons = [],
-    resultZone = null;
+    resultZone = null,
+    replayBtn = null;
 
 // Initialisation de la zone de jeu
 function initGameZone() {
@@ -79,9 +80,24 @@ function initGameZone() {
         myButton.textContent = btnValues[i];
     }
 
+    buttons[0].addEventListener("click", () => {
+        userScore = drawMore(userScore, gameZone)
+
+        dispPoints.textContent = 'Vous avez actuellement ' + userScore + ' points en main';
+        console.log('Vous avez actuellement ' + userScore + ' points en main')
+
+        if(userScore >= 21) {stand()}
+    })
+
+    buttons[1].addEventListener("click",double)
+
+    buttons[2].addEventListener("click", stand)
+
     // Création de la zone d'affichage du résultat
     resultZone = document.createElement('div')
-    resultZone.className = 'col-1 flexCenter h25 hidden';
+    resultZone.className = 'col-1 flexColumn h25 hidden';
+    resultZone.style.textAlign = 'center'
+    main.append(resultZone)
 }
 
 // Création de la zone de jeu
