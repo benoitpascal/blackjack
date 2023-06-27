@@ -12,8 +12,6 @@ const elsCards = []
 // const elsDealerCards = []
 
 
-
-
 // Initialisation de la structure principale du DOM
 const body = document.body;
 body.innerHTML = ''
@@ -26,3 +24,9 @@ createModale()
 
 // Initialisation des jetons
 initTokens()
+
+// Initialisation de la zone de jeu
+initGameZone()
+
+// Initialisation des données du jeu
+initGame()

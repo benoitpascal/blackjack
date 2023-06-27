@@ -10,7 +10,8 @@ function initTokens() {
     elDealBtn.type = "button"
     elDealBtn.value = "Miser"
     elDealBtn.textContent = "Miser"
-    elDealBtn.addEventListener("click", startGame);
+
+    if(amountBet > 0) {elDealBtn.addEventListener("click", pay);}
 
     // Préparation de la div incluant les jetons pour miser
     elCoins = document.createElement('div');
@@ -76,5 +77,13 @@ function handlerDealToken(evt) {
 
         // on met à jour l'affichage sur le bouton
         elDealBtn.textContent = `Miser ${amountBet} crédits`
+        elDealBtn.addEventListener("click", pay)
     }
+}
+
+// Retire le montant misé des crédits et démarre le jeu
+function pay() {
+    userCredits -= amountBet;
+    elCredit.textContent = userCredits;
+    startGame();
 }

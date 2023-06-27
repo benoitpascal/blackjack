@@ -1,8 +1,8 @@
 let header = null,
     main = null,
     footer = null,
+    elCredit = null,
     playBtn = null;
-
 
 // Création de la structure principale de la page
 function createDOM() {
@@ -22,7 +22,7 @@ function createDOM() {
     elsInformations.id = "infos";
 
     // Affichage des crédits restants
-    const elCredit = createBalise("div", elsInformations, "credit-info");
+    elCredit = createBalise("div", elsInformations, "credit-info");
     elCredit.textContent = userCredits.toLocaleString();
 
     // Affichage du bouton d'ouverture de la modale paramètres
@@ -36,14 +36,3 @@ function createDOM() {
     playBtn.addEventListener("click", getTokens);
 
 }
-
-// function showTokens() {
-//     // console.log("C'est parti !");
-//     //
-//     // // Suppression du bouton "Jouer"
-//     // playBtn.classList.add("hidden")
-//     // header.classList.add("in-game")
-//     // footer.classList.add("in-game")
-//
-//     getTokens()
-// }

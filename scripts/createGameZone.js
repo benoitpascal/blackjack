@@ -1,22 +1,29 @@
 // Déclaration des variables
 let elDealerZone = null,
+    fakeCard = null,
     gameZone = null,
     pointZone = null,
+    dispPoints = null,
     choiceZone = null,
-    buttonZone = null;
+    buttonZone = null,
+    buttons = [];
 
 // Initialisation de la zone de jeu
 function initGameZone() {
-    // Espace pour les cartes du croupier
-    elDealerZone = createBalise("div", main)
-    elDealerZone.className = 'col-1 flexCenter h35 hidden'
-    const fakeCard = createBalise("div", elDealerZone)
-    fakeCard.className = 'card redBase turn'
-    elsCards.push(fakeCard)
+
 
     // Espace pour les cartes du joueur
-    gameZone = createBalise("div", main)
-    gameZone.className = 'col-1 flexCenter h35 hidden'
+    gameZone = document.createElement('div')
+    main.prepend(gameZone)
+    gameZone.className = 'col-1 flexCenter h35'
+
+    // Espace pour les cartes du croupier
+    elDealerZone = document.createElement('div')
+    main.prepend(elDealerZone)
+    elDealerZone.className = 'col-1 flexCenter h35 hidden'
+    fakeCard = createBalise("div", elDealerZone)
+    fakeCard.className = 'card redBase turn'
+    elsCards.push(fakeCard)
 
     // Cartes au démarrage
     const firstCard = createBalise("div", gameZone, "card")
@@ -46,7 +53,7 @@ function initGameZone() {
     pointZone = createBalise("div", main)
     pointZone.className = 'col-1 flexCenter h5 hidden'
     createBalise("div", pointZone, "col-4")
-    const dispPoints = createBalise("div", pointZone, "col-2")
+    dispPoints = createBalise("div", pointZone, "col-2")
     dispPoints.classList.add("flexCenter")
     createBalise("div", pointZone, "col-4")
     dispPoints.textContent = "Points"
@@ -55,16 +62,16 @@ function initGameZone() {
     choiceZone = createBalise("div", main, "col-1")
     choiceZone.classList.add("flexCenter")
     choiceZone.classList.add("h25")
+    choiceZone.className = 'col-1 flexCenter h25 hidden'
     createBalise("div", choiceZone, "col-4")
-    buttonZone = createBalise("div", choiceZone, "col-2")
-    buttonZone.classList.add("flexCenter")
+    buttonZone = createBalise("div", choiceZone)
+    buttonZone.className = 'col-2 flexCenter'
     createBalise("div", choiceZone, "col-4")
 
     // Création des boutons
-    let buttons = []
-    buttons = createMultipleBalise("div", 4, buttonZone, "button")
+    buttons = createMultipleBalise("div", 3, buttonZone, "button")
 
-    const btnValues = ["Miser 100 crédits", "Demander une carte", "Doubler la mise", "Rester"]
+    const btnValues = ["HIT", "DOUBLE", "STAND"]
     for (let i = 0; i < buttons.length; i++) {
         const myButton = createButton(btnValues[i], buttons[i], "col-1");
         buttons[i].classList.add("col-2")
@@ -75,7 +82,6 @@ function initGameZone() {
 // Création de la zone de jeu
 function createGameZone() {
     elDealerZone.classList.remove('hidden')
-    gameZone.classList.remove('hidden')
     pointZone.classList.remove('hidden')
-
+    choiceZone.classList.remove('hidden')
 }
