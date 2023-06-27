@@ -1,6 +1,8 @@
 // Initialisation du paquet de cartes
 let countCards = 0;
 let mainDeck = [];
+let userScore = 0;
+let dealerScore = 0;
 
 // Initialiser les données du jeu
 function initGame() {
@@ -32,10 +34,10 @@ function startGame(){
     createGameZone()
 
     // Jeu
-    let userScore = 0
+    userScore = 0
     console.log(userScore)
 
-    let dealerScore = 0
+    dealerScore = 0
     console.log(dealerScore)
 
     for (let card of elsCards) {
@@ -55,37 +57,9 @@ function startGame(){
         console.log('Vous avez actuellement ' + userScore + ' points en main')
     })
 
-    buttons[1].addEventListener("click", () => {
-        pay(amountBet)
-        elCredit.textContent = userCredits;
-        userScore = drawMore(userScore, gameZone)
-        fakeCard.style.display = "none"
-        while (dealerScore < 17) {
-            dealerScore = drawMore(dealerScore, elDealerZone)
-        }
+    buttons[1].addEventListener("click",double)
 
-        if ((userScore > dealerScore || dealerScore > 21) && userScore < 21) {
-            console.log("Félicitations !")
-            userCredits += 400
-        } else {
-            console.log("Dommage, vous avez perdu votre mise")
-        }
-
-
-    })
-
-    buttons[2].addEventListener("click", () => {
-        fakeCard.style.display = "none"
-        while (dealerScore < 17) {
-            dealerScore = drawMore(dealerScore, elDealerZone)
-        }
-        if ((userScore > dealerScore || dealerScore > 21) && userScore < 21) {
-            console.log("Félicitations !")
-            userCredits += 200
-        } else {
-            console.log("Dommage, vous avez perdu votre mise")
-        }
-    })
+    buttons[2].addEventListener("click", stand)
 
 }
 
@@ -118,6 +92,26 @@ function drawMore(score, zone) {
     return score
 }
 
+function double() {
+    pay(amountBet)
+    elCredit.textContent = userCredits;
+    userScore = drawMore(userScore, gameZone)
+    stand()
+}
+
+function stand() {
+    fakeCard.style.display = "none"
+    while (dealerScore < 17) {
+        dealerScore = drawMore(dealerScore, elDealerZone)
+    }
+    choiceZone.classList.add('hidden')
+    if ((userScore > dealerScore || dealerScore > 21) && userScore < 21) {
+        console.log("Félicitations !")
+        userCredits += 200
+    } else {
+        console.log("Dommage, vous avez perdu votre mise")
+    }
+}
 
 // function redBase() {
 //     firstCard.classList.add("redBase")

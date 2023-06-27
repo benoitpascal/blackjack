@@ -6,7 +6,8 @@ let elDealerZone = null,
     dispPoints = null,
     choiceZone = null,
     buttonZone = null,
-    buttons = [];
+    buttons = [],
+    resultZone = null;
 
 // Initialisation de la zone de jeu
 function initGameZone() {
@@ -77,6 +78,10 @@ function initGameZone() {
         buttons[i].classList.add("col-2")
         myButton.textContent = btnValues[i];
     }
+
+    // Création de la zone d'affichage du résultat
+    resultZone = document.createElement('div')
+    resultZone.className = 'col-1 flexCenter h25 hidden';
 }
 
 // Création de la zone de jeu
