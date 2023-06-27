@@ -53,6 +53,7 @@ h1 {
     border-radius: 100%;
     color: #ffffff;
     flex: 2 0 0;
+    box-shadow: 4px 4px 7px rgba(0,0,0,0.4);
 }
 
 .coins.out {
@@ -67,10 +68,6 @@ h1 {
     font-size: 30px;
     font-weight: bold;
     clip-path: polygon( 107% 40%, 91% 43%, 91% 57%, 107% 60%, 87% 95%, 77% 82%, 64% 89%, 70% 105%, 30% 105%, 36% 89%, 23% 82%, 13% 95%, -7% 60%, 9% 57%, 9% 43%, -7% 40%, 13% 5%, 23% 18%, 36% 11%, 30% -5%, 70% -5%, 64% 11%, 77% 18%, 87% 5%)
-}
-
-.coins.out .coin {
-    rotate: -45deg;
 }
 
 .card {
