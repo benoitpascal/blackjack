@@ -78,18 +78,24 @@ function drawMore(score, zone) {
     console.log('Vous avez eu le ' + mainDeck[randCard1][3] + ' de ' + mainDeck[randCard1][1])
 
     score += mainDeck[randCard1][4]
+    // FIXME: L'AS compte pour 1 points
 
     elsCards.push(newCard)
     return score
 }
 
+// Double la mise, pioche 1 carte et arrête de piocher
 function double() {
     pay(amountBet)
     elCredit.textContent = userCredits;
     userScore = drawMore(userScore, gameZone)
     stand()
+
+    // FIXME: Le jeu remplace les cartes déjà piochées par 2 nouvelles cartes lors du double
+    // FIXME: Le jeu ne rembourse que 2 fois le montant initial au lieu du montant doublé
 }
 
+// Arrête de piocher
 function stand() {
     fakeCard.style.display = "none"
 
@@ -99,6 +105,8 @@ function stand() {
     }
 
     choiceZone.classList.add('hidden')
+
+    // TODO: Rembourser 2,5 fois le montant misé si le joueur a un BlackJack
     if ((userScore > dealerScore || dealerScore > 21) && userScore <= 21) {
         console.log("Félicitations !")
         resultZone.innerHTML = `Félicitations !! Vous avez gagné !!<br>
@@ -118,6 +126,14 @@ function stand() {
 
 
 }
+
+// Dédouble le jeu
+function split() {
+    // TODO: Dédouble en 2 jeux pour le joueur
+}
+
+
+
 
 // function redBase() {
 //     firstCard.classList.add("redBase")
